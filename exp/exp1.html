@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 1</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Yuji+Boku&display=swap" rel="stylesheet">
+
+    <link href="expStyle.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="container">
+        <h1>Experiment 1</h1>
+
+        <h2>Use "Command" + "Alt" + "J" to open console</h2>
+        <p>Try "Ctrl" + "Shift" + "J" if you're on Windows</p>
+    </div>
+
+    <script>
+        var triangle = "#";
+        var height = prompt("Enter a whole number between 6~10");
+        var waves = prompt("Enter a whole number between 2~5");
+
+        // selection
+        if(height >= 6 && height <= 10 && height % 1 == 0 && waves >= 2 && waves <= 5 && waves % 1 == 0) {
+    
+            console.log(triangle);
+            
+            // loop
+            for ( var i=0; i < waves; i++) {
+                for (var j = 0; j < height - 1; j++) {
+                    // sequence
+                    triangle += "#";
+                    console.log(triangle);
+                }
+                for (var j = 0; j < height - 1; j++) {
+                    // the slice method didn't exactly work the way that the W3 methods page explained it
+                    triangle = triangle.slice(1);
+                    console.log(triangle);
+                }
+            }
+        } else {
+            console.log('Please reload and enter valid values!')
+        }        
+    </script>
+</body>
+
+</html>

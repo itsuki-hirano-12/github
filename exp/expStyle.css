@@ -1,0 +1,25 @@
+body {
+    background-color: #3D312E;
+}
+
+#container {
+    max-width: 1200px;
+    color: #fff;
+    margin: auto;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+
+    padding-top: 20px;
+}
+
+h2 {
+    margin-top: 30px;
+    font-weight: 300;
+}
+
+p {
+    font-weight: 300;
+    font-size: 20px;
+}
