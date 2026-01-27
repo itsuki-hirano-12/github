@@ -4,11 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Experiment 2</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Yuji+Boku&display=swap" rel="stylesheet">
+
+    <link href="expStyle.css" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Experiment 2</h1>
-    
+    <div id="container">
+        <h1>Experiment 2</h1>
+
+        <p>Hover over the card to see if you guessed correctly</p>
+
+        <div id="card">
+            <img src="images/card-back.png" alt="back of card" height="500" width="auto" class="back">
+
+            <div class="front">
+                <img src="images/card-club.png" alt="club" height="500" width="auto" class="wrong">
+                <img src="images/card-diamond.png" alt="diamond" height="500" width="auto" class="wrong">
+                <img src="images/card-heart.png" alt="heart" height="500" width="auto" class="wrong">
+                <img src="images/card-spade.png" alt="spade" height="500" width="auto" class="correct">
+            </div>
+
+            <p class="answer">You guessed the correct card!</p>
+        </div>       
+    </div>
+
+    <script>
+        // This program asks the user to choose a card, and then checks if the card they chose matches the card that is randomly selected.
+
+        var response = prompt('Choose a card (club, diamond, heart, or spade)').toLowerCase();
+        // console.log(response);
+        var cards = ["club", "diamond", "heart", "spade"];
+        function randomInt() {
+            return Math.floor(4 * Math.random());
+        }
+
+        // recording random integer into a variable instead of cards[randomInt()] so I only call the function once
+        var correctCard = randomInt();
+
+        if (response !== cards[correctCard]) {
+            var answer = document.querySelector('.answer');
+            answer.innerHTML = "<p>You didn't guess the card correctly! Reload to play again!<p>";
+        }
+
+        // console.log(cards[correctCard]);
+
+        var cardList = document.querySelectorAll('.front img');
+        // console.log(cardList);
+        for (var i=0; i < cardList.length; i++) {
+            if(i === correctCard) {
+                cardList[i].className = 'correct';
+            } else {
+                cardList[i].className = 'wrong';
+            }
+        } 
+    </script>
 </body>
 
 </html>

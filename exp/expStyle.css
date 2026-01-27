@@ -23,3 +23,70 @@ p {
     font-weight: 300;
     font-size: 20px;
 }
+
+#card {
+    position: relative;
+}
+
+#card .back {
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+    opacity: 1;
+    /* animation: appear 1s ease forwards; */
+}
+
+#card:hover .back {
+    animation: dissappear 1s ease forwards;
+}
+
+#card .wrong, #card .correct {
+    position: absolute;
+    left: 50%;
+    translate: -50%;
+    opacity: 0;
+    /* animation: dissappear 1s ease forwards; */
+}
+
+#card:hover .correct, #card:hover .answer {
+    animation: appear 1s ease forwards;
+}
+
+#card .answer {
+    opacity:0;
+}
+
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    51% {
+        opacity: 1;
+        transform: rotateY(-90deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes dissappear {
+    0% {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+    50% {
+        opacity: 1;
+        transform: rotateY(90deg);
+    }
+    51% {
+        opacity:0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
