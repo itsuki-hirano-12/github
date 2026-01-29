@@ -63,3 +63,9 @@ img {
     color:#B1ECF5;
 }
 
+.paragraph ol {
+    padding-left: 20px;
+    margin-left: 0;
+    line-height: 1.3em;
+}
+
