@@ -6,7 +6,6 @@ body {
     display: flex;
     overflow:hidden;
     font-family: "Inconsolata", monospace;
-    font-optical-sizing: auto;
     font-weight: 500;
     color: rgb(62, 62, 62);
 }
