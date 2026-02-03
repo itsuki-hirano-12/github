@@ -1,0 +1,162 @@
+body {
+    max-width: 1200px;
+    max-height: 750px;
+    margin: auto;
+    background-color: yellowgreen;
+    display: flex;
+    overflow:hidden;
+    font-family: "Inconsolata", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    color: rgb(62, 62, 62);
+}
+
+button {
+    cursor: pointer;
+    color: rgb(62, 62, 62);
+}
+
+/* ----------input-------------- */
+#input {
+    display: none;
+    flex: 1;
+    background-color: darkgreen;
+    color: white;
+    margin: auto;
+    margin-top: 50px;
+    padding: 10px 30px 50px;
+    font-size: 18px;
+}
+
+.row {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.item {
+    flex: 1;
+}
+
+form input, form label{
+    display: block;
+}
+
+#input button {
+    font-family: "Fugaz One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 48px;
+    padding: 40px;
+    border-radius: 50%;
+    text-align: center;
+    margin-left: 25%;
+    margin-top: 50px;
+    border-width: 0;
+}
+
+/* ----------output---------- */
+#output {
+    display: block;
+    flex: 1;
+    position: relative;
+}
+
+#output img {
+    position: absolute;
+    transform-origin: center;
+    top:50px;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: -1;
+}
+
+#output div {
+    width: 450px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+#output h2 {
+    font-size: 30px;
+    text-align: center;
+}
+
+#output div p {
+    background-color: rgba(255, 255, 224, 0.579);
+    padding: 10px;
+    font-size: 18px;
+    line-height: 1.3em;
+}
+
+#output button {
+    font-family: "Fugaz One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 48px;
+    position: absolute;
+    top:600px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 5px;
+}
+
+span {
+    font-weight: 700;
+    color: forestgreen;
+}
+
+/* ----------visual-------------- */
+
+#track {
+    display: block;
+    flex: 1;
+    position: relative;
+    
+
+    /* turn on when showing */
+    /* transform: translateY(-500px); */
+}
+
+#images {
+    position: absolute;
+    top: -5px;
+    z-index: -1;
+}
+
+#podium {
+    margin-top: 200px;
+    margin-left: -30px;
+}
+
+#track h1 {
+    display: block;
+    max-width:350px;
+    font-family: "Fugaz One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    font-size: 48px;
+    text-align: center;
+    padding-top: 20px;
+    margin-left: -10px;
+    padding-left: 0;
+}
+
+#lefttape {
+    position: absolute;
+    width: 300px;
+    height: 40px;
+    right: 70%;
+    top: 650px;
+    background-color: white;
+}
+
+#righttape {
+    position: absolute;
+    width: 300px;
+    height: 40px;
+    left: 30%;
+    top: 650px;
+    background-color: white;
+}
