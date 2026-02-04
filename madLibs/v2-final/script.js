@@ -9,6 +9,7 @@
     const reset = document.querySelector('#reset');
     const track = document.querySelector('#track');
     const tape = document.querySelector('#tape');
+    const podium = document.querySelector('#podium');
 
     myForm.addEventListener('submit', function(event){
         // ----------- switch screen --------------
@@ -17,6 +18,7 @@
         output.className = 'on';
         track.className = 'finish';
         tape.className = 'cut';
+        podium.removeAttribute('class');
 
         // ----------- record input ----------------
         const animal1 = document.querySelector('#animal1').value;
@@ -35,8 +37,10 @@
         output.className = 'off';
         track.removeAttribute('class');
         tape.removeAttribute('class');
+        podium.className = 'hidden';
     })
 
-    
-    
+    window.addEventListener('onbeforeunload', function(event){
+        window.scrollTo(0,0);
+    });  
 }());

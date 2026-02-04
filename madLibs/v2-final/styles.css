@@ -160,7 +160,7 @@ span {
     color: white;
     font-size: 48px;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
     margin-left: -10px;
     padding-left: 0;
 }
@@ -191,4 +191,8 @@ span {
 
 .cut #righttape  {
     left: 40%;
+}
+
+.hidden {
+    display: none;
 }
