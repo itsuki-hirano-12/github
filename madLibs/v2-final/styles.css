@@ -134,10 +134,12 @@ span {
     flex: 1;
     position: relative;
     transition: all 1s ease;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .finish {
-    transform: translateY(-500px);
+    transform: translateY(-470px);
 }
 
 #images {
