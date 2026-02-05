@@ -8,6 +8,7 @@ body {
     font-family: "Inconsolata", monospace;
     font-weight: 500;
     color: rgb(62, 62, 62);
+    position: relative;
 }
 
 button {
@@ -84,6 +85,7 @@ form input, form label{
     left: 50%;
     transform: translate(-50%);
     z-index: -1;
+    transition: top 2s ease 1s;
 }
 
 #output div {
@@ -174,11 +176,12 @@ span {
     right: 70%;
     top: 650px;
     background-color: white;
-    transition: right 1s ease;
 }
 
 .cut #lefttape {
     right: 85%;
+    width: 250px;
+    transition: all 1s ease 0.5s;
 }
 
 #righttape {
@@ -188,11 +191,12 @@ span {
     left: 30%;
     top: 650px;
     background-color: white;
-    transition: left 1s ease;
 }
 
 .cut #righttape  {
     left: 40%;
+    width: 250px;
+    transition: all 1s ease 0.5s;
 }
 
 .hidden {
