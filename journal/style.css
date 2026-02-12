@@ -12,7 +12,6 @@ h1 {
 
 article {
     max-width: 1200px;
-    /* max-height: 750px; */
     margin: auto;
     display: flex;
 }
