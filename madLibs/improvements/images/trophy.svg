@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 629.48 662.16">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fed700;
+        stroke-miterlimit: 10;
+        stroke-width: 31px;
+      }
+
+      .cls-2 {
+        fill: #333;
+      }
+
+      .cls-3 {
+        fill: #fed700;
+      }
+    </style>
+  </defs>
+  <g id="trophy">
+    <path class="cls-3" d="M429.68,561.69h-232.09s116.05-176.52,0-183.3c-57.92-3.38,290.01-3.49,232.09,0-112.52,6.78,0,183.3,0,183.3Z"/>
+    <rect class="cls-2" x="144.86" y="535.94" width="337.56" height="126.22"/>
+    <path class="cls-3" d="M73.07,0h481.13v256.04c0,132.77-107.79,240.56-240.56,240.56h0c-132.77,0-240.56-107.79-240.56-240.56V0h0Z"/>
+    <ellipse class="cls-1" cx="501.43" cy="160.61" rx="112.55" ry="124.79"/>
+    <ellipse class="cls-1" cx="128.05" cy="160.61" rx="112.55" ry="124.79"/>
+  </g>
+</svg>

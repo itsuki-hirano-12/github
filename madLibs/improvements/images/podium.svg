@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 383.61 264.34">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #333;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-2 {
+        fill: #333;
+        font-family: FranklinGothicStd-Roman, 'Franklin Gothic Std';
+        font-size: 58px;
+      }
+    </style>
+  </defs>
+  <g id="podium">
+    <rect class="cls-1" x="1.5" y="152.7" width="126.87" height="110.14"/>
+    <rect class="cls-1" x="128.37" y="1.5" width="126.87" height="261.34"/>
+    <rect class="cls-1" x="255.24" y="103.03" width="126.87" height="159.81"/>
+    <text class="cls-2" transform="translate(170.35 72.54)"><tspan x="0" y="0">1</tspan></text>
+    <text class="cls-2" transform="translate(44 216.57)"><tspan x="0" y="0">3</tspan></text>
+    <text class="cls-2" transform="translate(297.74 169.52)"><tspan x="0" y="0">2</tspan></text>
+  </g>
+</svg>

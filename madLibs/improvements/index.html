@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Inconsolata:wght@200..900&display=swap" rel="stylesheet"> 
+
+    <link href="styles.css" rel="stylesheet">
+
+    <script src="script.js" defer></script>
+    <title>MadLibs V2</title>
+</head>
+
+<body>
+    <section id="track">
+        <h1>Create Your<br>Own Race</h1>
+
+        <div id="images">
+            <img src="images/track.jpg" alt="track" width="333" height="764">
+            <img src="images/podium.svg" alt="podium" width="385" height="265" id="podium" class="hidden">
+        </div>
+
+        <div id="tape">
+            <div id="lefttape"></div>
+            <div id="righttape"></div>
+        </div>
+    </section>
+
+    <section id="input" class="on">
+        <h2>Give me some words!</h2>
+        <form>
+            <div class="row">
+                <div class="item">
+                    <label for="animal1">Name of an animal</label>
+                    <input type="text" name="animal1" id="animal1" placeholder="Lion">
+                </div>
+
+                <div class="item">
+                    <label for="food">Type of food</label>
+                    <input type="text" name="food" id="food" placeholder="Apple">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="item">
+                    <label for="animal2">Name of another animal</label>
+                    <input type="text" name="animal2" id="animal2" placeholder="Zebra">
+                </div>
+
+                <div class="item">
+                    <label for="length">Length</label>
+                    <input type="text" name="length" id="length" placeholder="100 miles">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="item">
+                    <label for="adverb">Adverb</label>
+                    <input type="text" name="adverb" id="adverb" placeholder="furiously">
+                </div>
+
+                <div class="item">
+                    <label for="adjective1">Adjective</label>
+                    <input type="text" name="adjective1" id="adjective1" placeholder="happy">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="item">
+                    <label for="placement">Number + suffix</label>
+                    <input type="text" name="placement" id="placement" placeholder="1st, 5th etc.">
+                </div>
+
+                <div class="item">
+                    <label for="adjective2">Adjective</label>
+                    <input type="text" name="adjective2" id="adjective2" placeholder="shiny">
+                </div>
+            </div>
+
+            <button type="submit" id="submit">GOAL</button>
+        </form>
+    </section>
+
+    <section id="output" class="off">
+        <div>
+            <h2>Here is Your Race!</h2>
+            <p>
+                <!-- I entered my pet <span>lion</span> in a race. I gave him his favorite treat, <span>apples</span> to hype him up before the race. He was very excited to race against his rival, <span>zebra</span>. The race is <span>100 miles</span> long, and this is the longest race he had ever participated in so I was worried.<br><br>
+                The race started and everyone's pets started running <span>furiously</span> to the goal. My <span>lion</span> struggled at the start but began to catch up. He went ahead of his rival <span>zebra</span> at the last second!.<br><br>
+                My <span>lion</span> crossed the finish line and looked <span>happy</span> in the end. He won <span>1st</span> place, and got a <span>shiny</span> trophy.  -->
+            </p>
+            
+        </div>
+        <button id="reset">Play Again</button>
+        <img src="images/trophy.svg" alt="trophy" width="630" height="663">
+    </section>
+</body>
+
+</html>
