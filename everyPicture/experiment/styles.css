@@ -1,0 +1,81 @@
+body {
+    max-width: 1200px;
+    max-height: 750px;
+    margin: auto;
+    padding: 10px;
+    font-size: 24px;
+    text-align: center;
+}
+
+img { 
+    width: 200px;
+    max-width: 15vw;
+    height: auto;
+}
+
+div {
+    position: relative;
+    margin: 20px;
+}
+
+#card1 {
+    position: absolute;
+    top:50px;
+    left: 0%;
+}
+
+#card2 {
+    position: absolute;
+    top:50px;
+    left: 20%;
+}
+
+#card3 {
+    position: absolute;
+    top:50px;
+    left: 40%;
+}
+
+#card4 {
+    position: absolute;
+    top:50px;
+    left: 60%;
+}
+
+#card5 {
+    position: absolute;
+    top:50px;
+    left: 80%;
+}
+
+.flip {
+    animation: flipCard 1s ease;
+}
+
+.flipBack {
+    animation: flipBack 1s ease;
+}
+
+@keyframes flipCard {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }    
+}
+
+@keyframes flipBack {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(-90deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }      
+}
