@@ -1,0 +1,177 @@
+body {
+    background-color: royalblue;
+}
+
+#container {
+    position: relative;
+    max-width: 1200px;
+    max-height: 750px;
+    width: 100vw;
+    height: 100vh;
+    background-color: paleturquoise;
+    margin: auto;
+    margin-top: 0;
+}
+
+h1 {
+    color: midnightblue;
+    text-align: center;
+    padding: 10px;
+    padding-top: 30px;
+}
+
+.areaBox, .textBox {
+    position:absolute;
+    border: 2px solid midnightblue;
+}
+
+#trophyArea {
+    top: 15%;
+    left: 5%;
+    width: 200px;
+    height: 140px;
+}
+
+#standArea {
+    top: 40%;
+    left: 5%;
+    width: 200px;
+    height: 140px;
+}
+
+#cardArea {
+    bottom: 5%;
+    left: 15%;
+    width: 60%;
+    height: 200px;
+}
+
+#keyArea {
+    bottom: 5%;
+    right: 10%;
+    width: 150px;
+    height: 200px;
+}
+
+#playArea {
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 270px;    
+}
+
+#deckArea.areaBox {
+    right: 15%;
+    top: 25%;
+    height: 200px;
+    width: 150px;
+}
+
+/* img {
+    display: none;
+} */
+
+#card1.flipped {
+    display: block;
+    width: 120px;
+    height: 180px;
+    position: absolute;
+    bottom: 7%;
+    left: 16%;
+}
+
+#card2.flipped {
+    display: block;
+    width: 120px;
+    height: 180px;
+    position: absolute;
+    bottom: 7%;
+    left: 28%;
+}
+
+#card3.flipped {
+    display: block;
+    width: 120px;
+    height: 180px;
+    position: absolute;
+    bottom: 7%;
+    left: 40%;
+}
+
+#card4.flipped {
+    display: block;
+    width: 120px;
+    height: 180px;
+    position: absolute;
+    bottom: 7%;
+    left: 52%;
+}
+
+#card5.flipped {
+    display: block;
+    width: 120px;
+    height: 180px;
+    position: absolute;
+    bottom: 7%;
+    left: 64%;
+}
+
+#keychain.flipped {
+    display: block;
+    width: 120px;
+    height: 180px;
+    position: absolute;
+    bottom: 7%;
+    right: 11.5%;
+}
+
+#trophy.flipped {
+    display: block;
+    position: absolute;
+    top: 12%;
+    left: 8%;
+    height: 180px;
+    width: 120px;
+    transform: rotateZ(90deg);
+}
+
+#stand.flipped {
+    display: block;
+    position: absolute;
+    top: 37%;
+    left: 8%;
+    height: 180px;
+    width: 120px;
+    transform: rotateZ(90deg);
+}
+
+.inPlay {
+    display: block;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 300px; 
+}
+
+.inDeck {
+    display: block;
+    position: absolute;
+    right: 16.5%;
+    top: 27%;
+    height: 180px;
+    width: 120px;
+}
+
+/* turn on animation once javascript is ready */
+/* img {
+    transition: all 2s ease;
+} */
+
+/* change classname for deckArea to textBox once all the cards are in place
+make the box bigger to fit text in this area */
+#deckArea.textBox {
+
+}
