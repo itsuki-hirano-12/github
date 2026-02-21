@@ -31,6 +31,8 @@ h1 {
     font-weight: 600;
 }
 
+/* -------- Area setup -------- */
+
 .areaBox, .textBox {
     position:absolute;
     border: 2px solid midnightblue;
@@ -65,11 +67,11 @@ h1 {
 }
 
 #playArea {
-    top: 20%;
+    top: 19%;
     left: 50%;
     transform: translateX(-50%);
-    width: 180px;
-    height: 270px;    
+    width: 220px;
+    height: 320px;    
 }
 
 #deckArea.areaBox {
@@ -83,7 +85,13 @@ h1 {
     display: none;
 } */
 
-#card1.flipped {
+/* ----- images ------- */
+
+/* #card1.flipped {
+    animation: flipBack 1s ease-out 2s;
+} */
+
+#card1.set, #card1.flipped{
     display: block;
     width: 120px;
     height: 180px;
@@ -92,7 +100,11 @@ h1 {
     left: 16%;
 }
 
-#card2.flipped {
+/* #card2.flipped {
+    
+} */
+
+#card2.set, #card2.flipped {
     display: block;
     width: 120px;
     height: 180px;
@@ -101,7 +113,11 @@ h1 {
     left: 28%;
 }
 
-#card3.flipped {
+/* #card3.flipped {
+    animation: flipBack 1s ease-out 2s;
+} */
+
+#card3.set, #card3.flipped {
     display: block;
     width: 120px;
     height: 180px;
@@ -110,7 +126,12 @@ h1 {
     left: 40%;
 }
 
-#card4.flipped {
+/* #card4.flipped {
+    
+    animation: flipBack 1s ease-out 2s;
+} */
+
+#card4.set, #card4.flipped {
     display: block;
     width: 120px;
     height: 180px;
@@ -119,7 +140,12 @@ h1 {
     left: 52%;
 }
 
-#card5.flipped {
+/* #card5.flipped {
+
+    animation: flipBack 1s ease-out 2s;
+} */
+
+#card5.set, #card5.flipped {
     display: block;
     width: 120px;
     height: 180px;
@@ -128,7 +154,12 @@ h1 {
     left: 64%;
 }
 
-#card6.flipped {
+/* #card6.flipped {
+
+    animation: flipBack 1s ease-out 2s;
+} */
+
+#card6.set, #card6.flipped {
     display: block;
     width: 120px;
     height: 180px;
@@ -137,7 +168,7 @@ h1 {
     left: 78%;
 }
 
-#card7.flipped {
+#card7.set, #card7.flipped {
     display: block;
     position: absolute;
     top: 12%;
@@ -147,7 +178,7 @@ h1 {
     transform: rotateZ(90deg);
 }
 
-#card8.flipped {
+#card8.set, #card8.flipped {
     display: block;
     position: absolute;
     top: 37%;
@@ -178,11 +209,58 @@ h1 {
 
 /* turn on animation once javascript is ready */
 .flipped {
-    transition: all 2s ease;
+    transition: all 1s ease;
+    animation: flipBack 1s ease-out 1s;
 }
 
 .inPlay {
     transition: all 1s ease;
+    animation: flipCard 1s ease-out 1s;
+}
+
+.set {
+    transition: all 2s ease-out;
+}
+
+/* separate set of animation for cards that are placed sideways */
+#card8.flipped, #card7.flipped {
+    animation: flipSide 1s ease-out 1s;
+}
+
+@keyframes flipCard {
+    0% {
+        transform: rotateY(0deg) translateX(-50%);
+    }
+    50% {
+        transform: rotateY(90deg) translateX(-100%);
+    }
+    100% {
+        transform: rotateY(0deg) translateX(-50%);
+    }
+}
+
+@keyframes flipBack {
+    0% {
+        transform: rotateX(0deg);
+    }   
+    50% {
+        transform: rotateX(90deg);
+    }   
+    100% {
+        transform: rotateX(0deg);
+    }   
+}
+
+@keyframes flipSide {
+    0% {
+        transform: rotateX(0deg) rotateZ(90deg);
+    }   
+    50% {
+        transform: rotateX(90deg) rotateZ(90deg);
+    }   
+    100% {
+        transform: rotateX(0deg) rotateZ(90deg);
+    }   
 }
 
 /* -------- text boxes---------- */
@@ -191,11 +269,13 @@ section {
     position: absolute;
     background-color: lightsteelblue;
     width: 25%;
-    height: 33%;
+    min-height: 33%;
     transition: left 1s ease 1s;
     top: 22%;  
     font-size: 18px;
     line-height: 1.3em;
+    padding: 0;
+    margin: 0;
 }
 
 .textInPlay {
@@ -208,4 +288,5 @@ section {
 
 section p {
     padding: 10px;
+    padding-top: 0;
 }
