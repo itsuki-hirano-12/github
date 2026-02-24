@@ -6,13 +6,15 @@
     let prevCard = 'initial';
     const playArea = document.querySelector('#playArea');
 
-    // doing this for all images load at start
-    for (const eachCard of cards) {
-        eachCard.src = 'images/back.jpg'
-    }
+    
     
 
     window.addEventListener('load', function() {
+    for (const eachCard of cards) {
+        eachCard.src = 'images/back.jpg';
+        eachCard.style.opacity = '1';
+    }
+
         setTimeout( function(){
             dealCards();
             // start after cards have been placed

@@ -99,6 +99,10 @@ img:hover {
 
 /* ----- images ------- */
 
+img {
+    opacity: 0;
+}
+
 /* #card1.flipped {
     animation: flipBack 1s ease-out 2s;
 } */
