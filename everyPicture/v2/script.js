@@ -5,6 +5,11 @@
     // console.log(cards);
     let prevCard = 'initial';
     const playArea = document.querySelector('#playArea');
+
+    // doing this for all images load at start
+    for (const eachCard of cards) {
+        eachCard.src = 'images/back.jpg'
+    }
     
 
     window.addEventListener('load', function() {
