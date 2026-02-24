@@ -4,6 +4,8 @@
     const cards = document.querySelectorAll('img');
     // console.log(cards);
     let prevCard = 'initial';
+    const playArea = document.querySelector('#playArea');
+    
 
     window.addEventListener('load', function() {
         setTimeout( function(){
@@ -52,15 +54,42 @@
         const textBox = document.querySelector(`#text${number}`);
         const sections = document.querySelectorAll('section');
         const initialText = document.querySelector('#initial-text');
+        
+        // console.log(number);
 
         for (const eachSection of sections) {
                 eachSection.className = 'textOut';
             }
         if (prevCard === 'initial') {
             initialText.className = 'textInPlay';
+            playArea.style.backgroundColor = 'rgb(25, 25, 112, 0.2)'
+            playArea.style.borderColor = 'midnightblue';
         } else {
-            textBox.className = 'textInPlay';
-        }
+            textBox.className = 'textInPlay';  
+            
+            switch(number) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                    playArea.style.backgroundColor = 'rgba(25, 25, 112, 0.2)'
+                    playArea.style.borderColor = 'midnightblue';
+                    break;
+                case 6: 
+                    playArea.style.backgroundColor = 'rgba(102, 51, 153, 0.2)'
+                    playArea.style.borderColor = 'rebeccapurple';
+                    break;
+                case 7:
+                case 8:
+                    playArea.style.backgroundColor = 'rgba(102, 205, 171, 0.2)'
+                    playArea.style.borderColor = 'teal';
+                    break;
+                default:
+                    playArea.style.backgroundColor = 'rgba(25, 25, 112, 0.2)'
+                    playArea.style.borderColor = 'midnightblue';
+            }
+        }       
     }
 
     function flipCard(cardID) {
