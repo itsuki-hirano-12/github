@@ -93,9 +93,9 @@ h1 {
     width: 150px;
 }
 
-/* img {
-    display: none;
-} */
+img:hover {
+    cursor: pointer;
+}
 
 /* ----- images ------- */
 
