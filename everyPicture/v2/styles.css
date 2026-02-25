@@ -353,8 +353,8 @@ section {
     display: block;
     /* opacity: 0; */
     /* position: absolute; */
-    left: 65%;   
-    transform: translateX(200%);
+    left: 100vw;   
+    /* transform: translateX(200%); */
     transition: all 1s ease 1s;
 }
 
