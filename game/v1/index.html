@@ -19,70 +19,84 @@
         <h1>Star Fighter</h1>
 
         <section id="rules" class="off">
-            <h2>Rules</h2>
-            <ol>
-                <li>There are two players. Player to go first will be randomly selected.</li>
-                <li>The first player rolls two dice, and the sum of the rolls will be the damage dealt to the opponent... unless either roll is a 1.</li>
-                <li>If either roll is a 1, the player that rolled will take damage instead with the sum of the rolls times a multiplier. Then, the turn will end and the other player will take their turn.</li>
-                <li>If both rolls are 1, the player that rolled will take damage for the accumulated damage that they have dealt to the opponent this turn.</li>
-                <li>The player can choose to roll again until they lose their turn, or choose to end their turn.</li>
-                <li>When a player chooses to end a turn, they will roll the dice and gets healed the sum of the rolls times the multiplier. This will not occur when losing a turn by rolling a 1.</li>
-                <li>Once a player's turn ends, the other player's turn will start.</li>
-                <li>The multiplier starts at 1, and increases every other time a player rolls the dice. The multiplier resets every time a player starts a new turn.</li>
-                <li>The player that gets their opponent to 0 health wins the game!</li>
-            </ol>
-            <button id="close-rule">X</button>
+            <article>
+                <h2>Rules</h2>
+                <ol>
+                    <li>There are two players. Player to go first will be randomly selected.</li>
+                    <li>The first player rolls two dice, and the sum of the rolls will be the damage dealt to the opponent... unless either roll is a 1.</li>
+                    <li>If either roll is a 1, the player that rolled will take damage instead with the sum of the rolls times a multiplier. Then, the turn will end.</li>
+                    <li>If both rolls are 1, the player that rolled will take damage for the accumulated damage that they have dealt to the opponent this turn, and their turn will end.</li>
+                    <li>The player can choose to roll again until they lose their turn, or choose to end their turn.</li>
+                    <li>When a player chooses to end a turn, they will roll the dice and gets healed the sum of the rolls times the multiplier. This will not occur when losing a turn by rolling a 1.</li>
+                    <li>Once a player's turn ends, the other player's turn will start.</li>
+                    <li>The multiplier starts at 1, and increases every other time a player rolls the dice. The multiplier resets every time a player starts a new turn.</li>
+                    <li>The player that gets their opponent to 0 health wins the game!</li>
+                </ol>
+                <button id="close-rule">X</button>
+            </article>
+            
         </section>
 
-        <section id="start" class="off">
+        <section id="start" class="on">
             <h2>First Time?</h2>
-            <button id="read-rules">Rules</button>
+            <button id="readRules">Rules</button>
 
             <h2>Options</h2>
             <form>
-                <fieldset>
-                    <input type="radio" name="npc" id="npc-no" value="twoP">
-                    <label for="npc-no">Two Player Mode</label>
+                <div>
+                    <div class="formField">
+                        <fieldset>
+                            <legend>Choose a Mode</legend>
+                            <input type="radio" name="npc" id="npc-no" value="twoP" checked>
+                            <label for="npc-no">Two Player Mode</label>
 
-                    <input type="radio" name="npc" id="npc-yes" value="npc">
-                    <label for="npc-yes">VS NPC</label>
-                </fieldset>
+                            <input type="radio" name="npc" id="npc-yes" value="npc">
+                            <label for="npc-yes">VS NPC</label>
+                        </fieldset>
 
-                <fieldset>
-                    <legend>Set Max Health</legend>
-                    <input type="radio" name="hp" id="hp50" value="50">
-                    <label for="npc-yes">50</label>
+                        <fieldset>
+                            <legend>Set Max Health</legend>
 
-                    <input type="radio" name="hp" id="hp100" value="100">
-                    <label for="npc-yes">100</label>
+                            <input type="radio" name="hp" id="hp100" value="100" checked>
+                            <label for="hp100">100</label>
 
-                    <input type="radio" name="hp" id="hp500" value="500">
-                    <label for="npc-yes">500</label>
-                </fieldset>
+                            <input type="radio" name="hp" id="hp200" value="200">
+                            <label for="hp200">200</label>
 
-                <fieldset>
-                    <legend class="playerSelection">Choose Player 1</legend>
-                    <input type="radio" name="p1" id="p1-x" value="fighter-x">
-                    <label for="p1-x"><img src="images/fighter-x.svg"></label>
+                            <input type="radio" name="hp" id="hp500" value="500">
+                            <label for="hp500">500</label>
+                        </fieldset>
+                    </div>
 
-                    <input type="radio" name="p1" id="p1-tie" value="fighter-tie">
-                    <label for="p1-x"><img src="images/fighter-tie.svg"></label>
-                </fieldset>
+                    <div class="formField">
+                        <fieldset  class="playerSelection">
+                            <legend>Choose Player 1</legend>
+                            <input type="radio" name="p1" id="p1-x" value="fighter-x" checked>
+                            <label for="p1-x"><img src="images/fighter-x.svg"></label>
 
-                <fieldset>
-                    <legend class="playerSelection">Choose Player 2</legend>
-                    <input type="radio" name="p2" id="p2-x" value="fighter-x">
-                    <label for="p2-x"><img src="images/fighter-x.svg"></label>
+                            <input type="radio" name="p1" id="p1-tie" value="fighter-tie">
+                            <label for="p1-tie">
+                                <img src="images/fighter-tie.svg">
+                            </label>
+                        </fieldset>
 
-                    <input type="radio" name="p2" id="p2-tie" value="fighter-tie">
-                    <label for="p2-x"><img src="images/fighter-tie.svg"></label>
-                </fieldset>
+                        <fieldset  class="playerSelection">
+                            <legend>Choose Player 2</legend>
+                            <input type="radio" name="p2" id="p2-x" value="fighter-x" checked>
+                            <label for="p2-x"><img src="images/fighter-x.svg"></label>
+
+                            <input type="radio" name="p2" id="p2-tie" value="fighter-tie">
+                            <label for="p2-tie"><img src="images/fighter-tie.svg"></label>
+                        </fieldset>
+                    </div>
+                </div>
+                
 
                 <button type=submit id="startGame">START</button>
             </form>
         </section>
 
-        <section id="gameScreen" class="on">
+        <section id="gameScreen" class="off">
             <div id="player1" class="players">
                 <h2>Player 1</h2>
                 <img src="images/fighter-x.svg">
@@ -91,19 +105,19 @@
             </div>
 
             <div id="center">
+                <div id="gameConsole">
+                    <p>It's Player 1's turn!</p>
+                </div>
+
                 <div id="diceDisplay">
                     <img src="images/dice-2.svg" id="dice1">
                     <img src="images/dice-4.svg" id="dice2">
                 </div>
 
-                <div id="gameConsole">
-                    <p>It's Player 1's turn!</p>
-                </div>
-
                 <div id="miniRule" class="shown">
                     <ul>
-                        <li>Both rolls are 2~5 = Damage Dice Sum to Opponent</li>
-                        <li>Either roll is 1 = Damage Dice Sum to Self x Multiplier</li>
+                        <li>Both rolls 2~5 = Damage Dice Sum to Opponent</li>
+                        <li>Either roll is 1 = Damage Dice Sum x Multiplier to Self</li>
                         <li>Both rolls are 1 = Accumulated damage this turn to self</li>
                         <li>End turn = Heal Dice Sum x Multiplier</li>
                     </ul>
