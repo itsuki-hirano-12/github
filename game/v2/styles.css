@@ -46,7 +46,6 @@ li {
 }
 
 #rules {
-    /*  */
     /* padding: 10px; */
     background-color: #171e26d9;
     position: absolute;
@@ -85,7 +84,7 @@ li {
 
 /* start screen styling */
 
-#readRules {
+#start .readRules {
     margin-bottom: 20px;
 }
 
@@ -120,6 +119,7 @@ input[name='npc'], input[name='hp'] {
     margin-left: 10px;
     margin-top: -5px;
     vertical-align: middle;
+    cursor: pointer;
 }
 
 input[name='npc']:checked, input[name='hp']:checked {
@@ -129,6 +129,7 @@ input[name='npc']:checked, input[name='hp']:checked {
 label {
     margin: 0;
     padding: 0;
+    cursor: pointer;
 }
 
 form img {
@@ -136,6 +137,7 @@ form img {
     transform: rotateZ(-90deg);
     padding: 5px;
     border: transparent solid 2px;
+    cursor: pointer;
 }
 
 .playerSelection input[type='radio'] {
@@ -195,8 +197,20 @@ form img {
     width: 100%;
     top: 60%;
     height: 5%;
-    background-color: #FFFF5C;
+    
     border: solid white 2px;
+}
+
+#player1HP {
+    height: 100%;
+    width: 100%;
+    background-color: #FFFF5C;
+}
+
+#player2HP {
+    height: 100%;
+    width: 100%;
+    background-color: #FFFF5C;
 }
 
 .players h3 {
@@ -242,17 +256,18 @@ form img {
 #miniRule {
     background-color:#5cffffd7;
     color: rgb(47, 47, 47);
+    margin: 0 30px;
 }
 
 #miniRule ul {
-    padding: 5px 10px;
+    padding: 5px 10px 10px;
     list-style-type:none;
 }
 
 #control {
     display: flex;
     position: absolute;
-    bottom: 5%;
+    bottom: 0;
     width: 90%;
     left:50%;
     transform: translateX(-50%);
@@ -281,6 +296,10 @@ form img {
     font-size: 24px;
 }
 
+#control button:hover {
+    background-color: #FFFF5C;
+}
+
 #multiplier {
     text-align: center;
     font-size: 24px;
@@ -288,4 +307,28 @@ form img {
 
 #number {
     font-size: 36px;
+}
+
+#bottomMenu {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}
+
+#bottomMenu button {
+    background-color: white;
+    border: none;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+#again.on {
+    /* display: block; */
+    background-color: #FFFF5C;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 40px auto;
 }

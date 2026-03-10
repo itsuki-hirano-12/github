@@ -14,7 +14,7 @@
 
     <script src="script.js" defer></script>
 
-    <title>Game On! V1</title>
+    <title>Game On! V2</title>
 </head>
 <body>
     <main>
@@ -34,14 +34,14 @@
                     <li>The multiplier starts at 1, and increases every other time a player rolls the dice. The multiplier resets every time a player starts a new turn.</li>
                     <li>The player that gets their opponent to 0 health wins the game!</li>
                 </ol>
-                <button id="close-rule">X</button>
+                <button id="closeRule">X</button>
             </article>
             
         </section>
 
         <section id="start" class="on">
             <h2>First Time?</h2>
-            <button id="readRules">Rules</button>
+            <button class="readRules">Rules</button>
 
             <h2>Options</h2>
             <form>
@@ -101,9 +101,11 @@
         <section id="gameScreen" class="off">
             <div id="player1" class="players">
                 <h2>Player 1</h2>
-                <img src="images/fighter-x.svg">
-                <div class="hp-bar"></div>
-                <h3>100</h3>
+                <img src="images/fighter-x.svg" id="p1image">
+                <div class="hp-bar">
+                    <div id="player1HP"></div>
+                </div>
+                <h3 id="displayP1HP">100</h3>
             </div>
 
             <div id="center">
@@ -116,33 +118,45 @@
                     <img src="images/dice-4.svg" id="dice2">
                 </div>
 
-                <div id="miniRule" class="shown">
-                    <ul>
-                        <li>Both rolls 2~5 = Damage Dice Sum to Opponent</li>
-                        <li>Either roll is 1 = Damage Dice Sum x Multiplier to Self</li>
-                        <li>Both rolls are 1 = Accumulated damage this turn to self</li>
-                        <li>End turn = Heal Dice Sum x Multiplier</li>
-                    </ul>
-                </div>
-
-                <div id="control">
-                    <div id="multiplier">
-                        <p>Multiplier</p>
-                        <p id="number">x 1</p>
+                <div id="panel" class="off">
+                    <div id="miniRule">
+                        <ul>
+                            <li>Both rolls 2~5 = Damage Dice Sum to Opponent</li>
+                            <li>Either roll is 1 = Damage Dice Sum x Multiplier to Self</li>
+                            <li>Both rolls are 1 = Accumulated damage this turn to self</li>
+                            <li>End turn = Heal Dice Sum x Multiplier</li>
+                        </ul>
                     </div>
 
-                    <div id="controlButtons">
-                        <button id="attack">Attack</button>
-                        <button id="endTurn">End Turn</button>
+                    <div id="control">
+                        <div id="multiplier">
+                            <p>Multiplier</p>
+                            <p id="number">x 1</p>
+                        </div>
+
+                        <div id="controlButtons">
+                            <!-- <button id="attack">Attack</button>
+                            <button id="endTurn">End Turn</button> -->
+                        </div>
                     </div>
-                </div>
+                </div>    
+                
+                <button id="again" class="off">Play Again?</button>
             </div>
 
             <div id="player2" class="players">
                 <h2>Player 2</h2>
-                <img src="images/fighter-tie.svg">
-                <div class="hp-bar"></div>
-                <h3>100</h3>
+                <img src="images/fighter-tie.svg" id="p2image">
+                <div class="hp-bar">
+                    <div id="player2HP"></div>
+                </div>
+                <h3 id="displayP2HP">100</h3>
+
+                <div id="bottomMenu">
+                    <button class="readRules">Rules</button>
+                    <button id="quit">Quit</button>
+                    <button class="sound">Sound</button>
+                </div>
             </div>
         </section>
     </main>   
