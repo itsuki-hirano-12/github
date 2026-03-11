@@ -23,7 +23,7 @@
         accumDamage: 0,
         rollsThisTurn: 0,
         singlePlayer: false,
-        npcBehavior: 3
+        npcBehavior: 5
     };
 
     
@@ -122,10 +122,33 @@
         gameData.accumDamage = 0;
         gameData.rollsThisTurn = 0;
 
+        if (gameData.npcBehavior > 2 && gameData.index === 1) {
+                gameData.npcBehavior --;
+                console.log(gameData.npcBehavior);
+            }
+
+        
         setUpAction();
     }
 
     function setUpAction() {
+        if (gameData.rollsThisTurn !== 0 && gameData.rollsThisTurn % 2 === 0) {
+            gameData.multiplier++;
+            // console.log(gameData.multiplier);
+            document.querySelector('#number').innerHTML = `x ${gameData.multiplier}`;
+        }
+
+        if (gameData.singlePlayer && gameData.index === 1) {            
+            // console.log(gameData.rollsThisTurn);
+            
+            
+            behaviorNPC();
+        } else {
+            playerAction();
+        }
+    }
+
+    function playerAction() {
         gameConsole.innerHTML += `<br>It's ${gameData.players[gameData.index]}'s turn!`;
         // control buttons
         document.querySelector('#controlButtons').innerHTML = '<button id="attack">Attack</button> <button id="endTurn">End Turn</button>'
@@ -133,13 +156,7 @@
         const endTurn = document.querySelector('#endTurn');
 
         panel.className = 'on';
-
-        if (gameData.rollsThisTurn !== 0 && gameData.rollsThisTurn % 2 === 0) {
-            gameData.multiplier++;
-            console.log(gameData.multiplier);
-            document.querySelector('#number').innerHTML = `x ${gameData.multiplier}`;
-        }
-        
+  
         attack.addEventListener('click', function(){
             // console.log('throw the dice and attack!');
             attackOpponent();
@@ -151,14 +168,23 @@
         })
     }
 
+    function behaviorNPC() {
+        const npcConsole = document.querySelector('#controlButtons');
+        npcConsole.innerHTML = '<p>NPC</p>';
+        if (gameData.rollsThisTurn <= gameData.npcBehavior) {
+            npcConsole.innerHTML += '<p>Attacks!</p>';
+            setTimeout(attackOpponent, 1000);
+        } else {
+            npcConsole.innerHTML += '<p>Heals</p>';
+            gameData.npcBehavior += 2;
+            setTimeout(healSelf, 1000);
+        }
+
+        panel.className = 'on';
+    }
+
     function attackOpponent() {
-        gameData.roll1 = Math.floor(Math.random() * 6) + 1;
-        gameData.roll2 = Math.floor(Math.random() * 6) + 1;
-        // console.log(gameData.roll1);
-        // console.log(gameData.roll2);
-        document.querySelector('#dice1').src = `images/${gameData.dice[gameData.roll1-1]}`;
-        document.querySelector('#dice2').src = `images/${gameData.dice[gameData.roll2-1]}`;
-        gameData.rollSum = gameData.roll1 + gameData.roll2;
+        rollDice();
         gameData.accumDamage += gameData.rollSum;
         gameData.rollsThisTurn++;
         // console.log(`damage is ${gameData.rollSum}`);
@@ -167,12 +193,13 @@
 
         if (gameData.rollSum === 2) {
             gameData.health[gameData.index] = gameData.health[gameData.index] - gameData.accumDamage;
-            gameConsole.innerHTML = `Oh no, snake eyes!<br>${gameData.players[gameData.index]} took ${gameData.accumDamage} damage!`;
+            gameConsole.innerHTML = `${gameData.players[gameData.index]} took ${gameData.accumDamage} damage!`;
             
             // insert self damage display
             panel.className = 'off';
             // gameConsole.innerHTML = 'switching player';
             gameData.hpDisplay[gameData.index].innerHTML = `${gameData.health[gameData.index]}`;
+            animateHPBar();
 
             // new turn
             checkWinCondition();
@@ -181,12 +208,13 @@
             }
         } else if (gameData.roll1 === 1 || gameData.roll2 === 1) {
             gameData.health[gameData.index] = gameData.health[gameData.index] - gameData.rollSum * gameData.multiplier;
-            gameConsole.innerHTML = `Oh no, you rolled a 1!<br>${gameData.players[gameData.index]} took ${gameData.rollSum * gameData.multiplier} damage!`;
+            gameConsole.innerHTML = `${gameData.players[gameData.index]} took ${gameData.rollSum * gameData.multiplier} damage!`;
 
             // insert self damage display
             panel.className = 'off';
             // gameConsole.innerHTML = 'switching player';
             gameData.hpDisplay[gameData.index].innerHTML = `${gameData.health[gameData.index]}`;
+            animateHPBar();
 
             //new turn
             checkWinCondition();
@@ -200,6 +228,7 @@
             // insert attacking display
             gameData.hpDisplay[gameData.oppIndex].innerHTML = `${gameData.health[gameData.oppIndex]}`;
             panel.className = 'off';
+            animateHPBar();
 
             // continue turn
             checkWinCondition();
@@ -210,11 +239,7 @@
     }
 
     function healSelf() {
-        gameData.roll1 = Math.floor(Math.random() * 6) + 1;
-        gameData.roll2 = Math.floor(Math.random() * 6) + 1;
-        document.querySelector('#dice1').src = `images/${gameData.dice[gameData.roll1-1]}`;
-        document.querySelector('#dice2').src = `images/${gameData.dice[gameData.roll2-1]}`;
-        gameData.rollSum = gameData.roll1 + gameData.roll2;
+        rollDice();
 
         gameData.health[gameData.index] += gameData.rollSum * gameData.multiplier;
         if (gameData.health[gameData.index] > gameData.maxHP) {
@@ -224,6 +249,7 @@
         gameConsole.innerHTML = `${gameData.players[gameData.index]} healed ${gameData.rollSum * gameData.multiplier}!`;
 
         gameData.hpDisplay[gameData.index].innerHTML = `${gameData.health[gameData.index]}`;
+        animateHPBar();
 
         setTimeout(newTurn, 1000);
     }
@@ -244,5 +270,82 @@
         document.querySelector('#again').addEventListener('click', function(){
             location.reload();
         });
+    }
+
+    function animateHPBar() {
+        const barP1 = document.querySelector('#player1HP');
+        const barP2 = document.querySelector('#player2HP');
+        let percentageP1 = gameData.health[0] / gameData.maxHP * 100;
+        let percentageP2 = gameData.health[1] / gameData.maxHP * 100;
+
+        if (gameData.health[0] > 0) {
+            barP1.style.width = `${percentageP1}%`
+        } else {
+            barP1.style.width = '0%'
+        }
+
+        if (percentageP1 <= 20) {
+            barP1.style.backgroundColor = 'red';
+            gameData.hpDisplay[0].style.color = 'lightcoral'
+        } else if (percentageP1 <=50){
+            barP1.style.backgroundColor = 'yellow';
+            gameData.hpDisplay[0].style.color = 'yellow';
+        } else {
+            barP1.style.backgroundColor = 'lime';
+            gameData.hpDisplay[0].style.color = 'white';
+        }
+
+        if (gameData.health[1] > 0) {
+            barP2.style.width = `${percentageP2}%`
+        } else {
+            barP2.style.width = '0%'
+        } 
+
+        if (percentageP2 <= 20) {
+            barP2.style.backgroundColor = 'red'
+            gameData.hpDisplay[1].style.color = 'lightcoral';
+        } else if (percentageP2 <=50){
+            barP2.style.backgroundColor = 'yellow';
+            gameData.hpDisplay[1].style.color = 'yellow';
+        } else {
+            barP2.style.backgroundColor = 'lime';
+            gameData.hpDisplay[1].style.color = 'white';
+        }
+    }
+
+    function rollDice() {
+        let prevRoll1 = gameData.roll1;
+        let prevRoll2 = gameData.roll2;
+        gameData.roll1 = Math.floor(Math.random() * 6) + 1;
+        gameData.roll2 = Math.floor(Math.random() * 6) + 1;
+        gameData.rollSum = gameData.roll1 + gameData.roll2;
+        let cycle1 = 0;
+        let cycle2 = 0;
+        
+        const dice1 = document.querySelector('#dice1');
+        const dice2 = document.querySelector('#dice2');
+
+        changeDice(dice1, prevRoll1, gameData.roll1, cycle1);
+
+
+        dice1.src = `images/${gameData.dice[gameData.roll1-1]}`;
+        dice2.src = `images/${gameData.dice[gameData.roll2-1]}`;
+    }
+
+    function changeDice(dice, start, end, cycleId) {
+        let diceId = start;
+        let cycles = cycleId
+        dice.src = `images/${gameData.dice[diceId -1]}`;
+        if (diceId = 6) {
+            diceId = 1;
+            cycles++;
+        } else {
+            diceId++;
+        }
+
+        if (cycles < 5 && diceId !== end) {
+            setTimeout(changeDice(dice, diceId, end, cycles),1000);
+            console.log('dice rolling');
+        }
     }
 }());

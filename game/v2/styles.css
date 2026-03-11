@@ -164,7 +164,7 @@ form img {
 #gameScreen.on {
     display: flex;
     gap: 20px;
-    padding: 10px;
+    padding:0px 10px;
 }
 
 .players {
@@ -180,7 +180,7 @@ form img {
 
 .players h2 {
     text-align: center;
-    font-size: 56px;
+    font-size: 48px;
 }
 
 .players img {
@@ -204,19 +204,21 @@ form img {
 #player1HP {
     height: 100%;
     width: 100%;
-    background-color: #FFFF5C;
+    background-color: lime;
+    transition: all 1s ease;
 }
 
 #player2HP {
     height: 100%;
     width: 100%;
-    background-color: #FFFF5C;
+    background-color: lime;
+    transition: all 1s ease;
 }
 
 .players h3 {
     color: white;
     position: absolute;
-    font-size: 48px;
+    font-size: 64px;
     top: 70%;
     left: 50%;
     transform: translateX(-50%);
@@ -230,6 +232,7 @@ form img {
 #diceDisplay {
     position: relative;
     height: 20%;
+    margin-top: 5px;
 }
 
 #diceDisplay img {
@@ -251,6 +254,11 @@ form img {
     font-size: 24px;
     background-color: #0051a3e5;
     line-height: 1.5em;
+    padding-top: 10px;
+}
+
+#gameConsole p {
+    margin: 0;
 }
 
 #miniRule {
@@ -331,4 +339,13 @@ form img {
     font-size: 24px;
     font-weight: 500;
     margin: 40px auto;
+}
+
+#controlButtons p {
+    /* margin: auto; */
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.4em;
+    font-weight: 600;
+    margin: 25px 0;
 }
