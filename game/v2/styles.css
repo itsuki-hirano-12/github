@@ -281,7 +281,7 @@ form img {
 }
 
 @keyframes playerHeal {
-    from {border:none; background-color: none;}
+    from {border:none; background: none;}
     to {border: lime solid 2px; background-color: rgba(0, 255, 0, 0.276);}
 }
 
