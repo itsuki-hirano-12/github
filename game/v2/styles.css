@@ -59,10 +59,11 @@ li {
 
 #rules article {
     background-color: #2c4f71c7;
-    max-width: 600px;
+    width: 1000px;
     position: relative;
     margin: 20px auto;
     padding:15px;
+    height: 600px;
 }
 
 #rules button {
@@ -159,6 +160,47 @@ form img {
     margin: 20px auto;
 }
 
+#sounds {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    gap: 10px;
+    margin: 10px;
+    /* line-height: 1.2em; */
+    z-index: -1;
+}
+
+#sounds p {
+    margin: 5px;
+}
+
+#startSound.soundOn, #gameSound.soundOn {
+    background-color: #FFFF5C;
+}
+
+#gameSound.soundOff, #startSound.soundOff {
+    background-color: white;
+}
+
+#audioSources.on {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 50%;
+    padding: 10px;
+    line-height: 1.3em;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+#audioSources h3 {
+    font-family:"Comfortaa", sans-serif ;
+    font-size: 20px;
+}
+
 /* main game screen styling */
 
 #gameScreen.on {
@@ -183,13 +225,114 @@ form img {
     font-size: 48px;
 }
 
-.players img {
+.playerImage {
     position: absolute;
-    width: 60%;
-    height: auto;
+    max-width: 60%;
+    max-height: 40%;
     bottom: 50%;
     left: 50%;
     transform: translate(-50%);
+}
+
+.model {
+    width: 100%;
+    height: 100%;
+}
+
+.modelHit {
+    width: 100%;
+    height: 100%;
+    animation: playerHit 0.5s 2 forwards;
+    opacity: 80%;
+}
+
+.modelDefeated {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition:all 2s;
+}
+
+.modelHeal {
+    width: 100%;
+    height: 100%;
+    animation: playerHeal 0.25s alternate 4 forwards;
+}
+
+@keyframes playerHit {
+    0% {
+        translate: 0 0;
+    }
+    20% {
+        translate: -5% -5%;
+    }
+    40% {
+        translate: 5% 5%;
+    }
+    60% {
+        translate: -5% 5%;
+    }
+    80% {
+        translate: 5% -5%;
+    }
+    100% {
+        translate: 0 0;
+    }
+}
+
+@keyframes playerHeal {
+    from {border:none; background-color: none;}
+    to {border: lime solid 2px; background-color: rgba(0, 255, 0, 0.276);}
+}
+
+.laserOn {
+    position: absolute;
+    top: 50%;
+    height: 6px;
+    transform: translateY(-50%);
+    /* width: 200px; */
+    background-color: white;
+    border-top: solid 5px lime;
+    border-bottom: solid 5px lime;
+    animation: animateLaser 2s forwards;
+}
+
+.bigLaser {
+    position: absolute;
+    top: 50%;
+    height: 20px;
+    transform: translateY(-50%);
+    background-color: white;
+    border-top: solid 5px red;
+    border-bottom: solid 5px red;
+    animation: animateLaser 2s forwards;
+}
+
+#laser1.laserOn, #laser1.bigLaser{
+    left: 120%;
+}
+
+#laser2.laserOn, #laser2.bigLaser {
+    right: 120%;   
+}
+
+@keyframes animateLaser {
+    0% {
+        width: 0;
+        opacity: 1;
+    }
+    50% {
+        width: 100vw;
+        opacity: 1;
+    }
+    100% {
+        width: 100vw;
+        opacity: 0;
+    }
+}
+
+#p2image {
+    transform: rotateZ(180deg);
 }
 
 .hp-bar {
@@ -224,12 +367,8 @@ form img {
     transform: translateX(-50%);
 }
 
-#player2 img {
-    transform: rotateZ(180deg) translate(50%);
-    left: 50%;
-}
-
 #diceDisplay {
+    margin-top: 50px;
     position: relative;
     height: 20%;
     margin-top: 5px;
